@@ -91,11 +91,11 @@ jobs:
           export const mount = (ctx: any) => ctx.plugin(SystemPrompt, { persona: '' })
           TS
           set +e
-          npx --no-install dsh-plugin-upgrade-015-scan --repo bad-b --seams C1 --quiet
+          pnpm exec dsh-plugin-upgrade-015-scan --repo bad-b --seams C1 --quiet
           code_b="$?"
-          npx --no-install dsh-plugin-upgrade-015-scan --repo bad-a --seams S9 --quiet
+          pnpm exec dsh-plugin-upgrade-015-scan --repo bad-a --seams S9 --quiet
           code_a="$?"
-          npx --no-install dsh-plugin-upgrade-015-scan --repo bad-b --seams C3 --quiet
+          pnpm exec dsh-plugin-upgrade-015-scan --repo bad-b --seams C3 --quiet
           code_retired="$?"
           set -e
           if [ "$code_b" -ne 1 ]; then
