@@ -3,6 +3,7 @@
 # ⬆️ dsh-plugin-upgrade-015
 - **Canal da loja 1024**: rode `npm i -g dsh1024` uma vez e depois `dsh1024 plugin --profile web add dsh-plugin-upgrade-015` (conta para o ranking de instalações do [deepseek1024.com](https://deepseek1024.com)).
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads&lang=pt)](https://dshfind.com/pt/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
 **Habilidade de atualização de plugins para o DeepSeek Harness, com versão travada e fundida — `0.1.3-alpha.1` → `0.1.5-rc.1`, carregada em duas pernas fechadas.**
 

@@ -3,6 +3,7 @@
 # ⬆️ dsh-plugin-upgrade-015
 - **1024 store channel**: `npm i -g dsh1024` once, then `dsh1024 plugin --profile web add dsh-plugin-upgrade-015` (counts toward the [deepseek1024.com](https://deepseek1024.com) install ranking).
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads)](https://dshfind.com/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
 **Merged, version-locked plugin upgrade skill for DeepSeek Harness — `0.1.3-alpha.1` → `0.1.5-rc.1`, carried as two closed legs.**
 

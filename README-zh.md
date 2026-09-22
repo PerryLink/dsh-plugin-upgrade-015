@@ -3,6 +3,7 @@
 # ⬆️ dsh-plugin-upgrade-015
 - **1024 商店通道**：先 `npm i -g dsh1024`，再执行 `dsh1024 plugin --profile web add dsh-plugin-upgrade-015`（计入 [deepseek1024.com](https://deepseek1024.com) 安装排行）。
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads&lang=zh)](https://dshfind.com/zh/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
 **DeepSeek Harness 插件升级技能（已合并、版本锁定）——`0.1.3-alpha.1` → `0.1.5-rc.1`，由两条闭合的 leg 承载。**
 
