@@ -30,7 +30,7 @@
 
 | Superficie | Estado |
 |---|---|
-| Harness | DeepSeek Harness `0.1.5-rc.1` (tag `dsh-v0.1.7-alpha.1` = `183f08e9c6dd`; relevo tramo A→B `dsh-v0.1.7-alpha.1` = `5dda764ed3aa`; inicio del corredor `0.1.3-alpha.1`). Banda de peers `@deepseek-ai/dsh-skill >=0.1.2-rc.1 <0.2.0 \|\| >=0.1.5-alpha.1 <0.2.0`, `@deepseek-ai/cordis ^4.0.2`, `@deepseek-ai/schemastery ^3.18.2`. |
+| Harness | DeepSeek Harness `0.1.5-rc.1` (tag `dsh-v0.1.7-alpha.2` = `183f08e9c6dd`; relevo tramo A→B `dsh-v0.1.7-alpha.2` = `5dda764ed3aa`; inicio del corredor `0.1.3-alpha.1`). Banda de peers `@deepseek-ai/dsh-skill >=0.1.2-rc.1 <0.2.0 \|\| >=0.1.5-alpha.1 <0.2.0`, `@deepseek-ai/cordis ^4.0.2`, `@deepseek-ai/schemastery ^3.18.2`. |
 | Node | `^22.19.0 \|\| >=24.0.0` |
 | Plataformas | Donde corra Node; el escáner solo usa el sistema de archivos y es neutral respecto a la plataforma |
 | Modelo | Modelos solo de texto totalmente soportados; la habilidad es un Markdown, sin requisitos de herramientas ni visión |
@@ -151,7 +151,7 @@ El orden sigue el catálogo de `lib/scan.mjs` (primero el tramo A, luego el tram
 
 ## Lo que esto no cubre
 
-- **Un salto posterior a `0.1.5-rc.1`.** El lapso fusionado termina en rc.1 por construcción: el salto del harness `0.1.5-rc.1` → `0.1.5-rc.2` no añadió ninguna costura de cara a los plugins (el pin de dev/test y la sonda de CI de este propio paquete corren sobre la línea `0.1.5-rc.2`, de modo que el catálogo queda verificado contra los tipos publicados más recientes). Cualquier cosa que añada una costura más adelante es un **paquete nuevo**: una tarjeta que deriva es peor que ninguna tarjeta.
+- **Un salto posterior a `0.1.5-rc.1`.** El lapso fusionado termina en rc.1 por construcción: el salto del harness `0.1.5-rc.1` → `0.1.5-rc.2` no añadió ninguna costura de cara a los plugins (el pin de dev/test de este propio paquete corre ahora sobre la línea `0.1.7-alpha.2`, de modo que el catálogo queda verificado contra los tipos publicados más recientes; la sonda del workflow compat sigue anclada en `0.1.6-alpha.2`). Cualquier cosa que añada una costura más adelante es un **paquete nuevo**: una tarjeta que deriva es peor que ninguna tarjeta.
 - **El salto `0.1.1` → `0.1.2`.** Usa la habilidad de convergencia de la comunidad.
 - **Repetir entre tramos.** El tramo A posee las costuras del formato de sesión (`assistant/message.stream`, `SessionHandleReadResult`, `EpochHeader.system`, `ctx.agent`, `Inbox`, `SystemPrompt.persona`, la generación de log V3) y el tramo B no las repite: todo el diff de `packages/core/session/src` en el rango del tramo B son dos literales de tipo de evento añadidos y una línea de comentario. La sección de tarjeta de cada tramo conserva su propia declaración de alcance.
 - **La ruta de actualización del usuario de DSH.** Este paquete actualiza *código fuente de plugins*, no la instalación del harness de un usuario.

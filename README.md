@@ -30,7 +30,7 @@
 
 | Surface | Status |
 |---|---|
-| Harness | DeepSeek Harness `0.1.5-rc.1` (tag `dsh-v0.1.7-alpha.1` = `183f08e9c6dd`; leg A→B handoff `dsh-v0.1.7-alpha.1` = `5dda764ed3aa`; corridor start `0.1.3-alpha.1`). Peer band `@deepseek-ai/dsh-skill >=0.1.2-rc.1 <0.2.0 \|\| >=0.1.5-alpha.1 <0.2.0`, `@deepseek-ai/cordis ^4.0.2`, `@deepseek-ai/schemastery ^3.18.2`. |
+| Harness | DeepSeek Harness `0.1.5-rc.1` (tag `dsh-v0.1.7-alpha.2` = `183f08e9c6dd`; leg A→B handoff `dsh-v0.1.7-alpha.2` = `5dda764ed3aa`; corridor start `0.1.3-alpha.1`). Peer band `@deepseek-ai/dsh-skill >=0.1.2-rc.1 <0.2.0 \|\| >=0.1.5-alpha.1 <0.2.0`, `@deepseek-ai/cordis ^4.0.2`, `@deepseek-ai/schemastery ^3.18.2`. |
 | Node | `^22.19.0 \|\| >=24.0.0` |
 | Platforms | Anywhere Node runs; the scanner is filesystem-only and platform-neutral |
 | Model | Text-only models fully supported; the skill is a Markdown body, no tool or vision requirement |
@@ -151,7 +151,7 @@ Order follows the catalog in `lib/scan.mjs` (leg A first, then leg B), which is 
 
 ## What this does not cover
 
-- **A hop after `0.1.5-rc.1`.** The merged span ends at rc.1 by construction: the harness hop `0.1.5-rc.1` → `0.1.5-rc.2` added no plugin-facing seam (this package's own dev/test pin and CI probe run on the `0.1.5-rc.2` line so the catalog is verified against the newest published types). Anything that adds a seam later is a **new package** — a card that drifts is worse than no card.
+- **A hop after `0.1.5-rc.1`.** The merged span ends at rc.1 by construction: the harness hop `0.1.5-rc.1` → `0.1.5-rc.2` added no plugin-facing seam (this package's own dev/test pin now runs on the `0.1.7-alpha.2` line so the catalog is verified against the newest published types; the compat workflow's probe still anchors `0.1.6-alpha.2`). Anything that adds a seam later is a **new package** — a card that drifts is worse than no card.
 - **The `0.1.1` → `0.1.2` hop.** Use the community convergence skill.
 - **Restating across legs.** Leg A owns the session-format seams (`assistant/message.stream`, `SessionHandleReadResult`, `EpochHeader.system`, `ctx.agent`, `Inbox`, `SystemPrompt.persona`, the V3 log generation) and leg B does not restate them — the whole `packages/core/session/src` diff in leg B's range is two added event-type literals and one comment line. Each leg's card section keeps its own scope statement.
 - **The DSH user-facing upgrade path.** This package upgrades *plugin source code*, not a user's harness installation.
