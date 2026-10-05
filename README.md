@@ -5,6 +5,8 @@
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
 [![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads)](https://dshfind.com/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
+> 🪦 **RETIRED — no longer maintained as of 2026-10-05.** This package was retired by the maintainer. **Every plugin upgrade now goes through [`dsh-plugin-upgrade`](https://github.com/PerryLink/dsh-plugin-upgrade) instead** (npm `dsh-plugin-upgrade`), which carries all corridors and routes a repository by **the version the repository pins for itself** (`engines.dsh` / peer ranges / devDeps) — so a separate version-locked package per host hop is no longer needed. **Do not adopt `dsh-plugin-upgrade-015` for new work**; it receives no further fixes, releases, or security updates. Kept public for reference only. The corridor knowledge this package carried is preserved in `dsh-plugin-upgrade`'s reference cards.
+
 **Merged, version-locked plugin upgrade skill for DeepSeek Harness — `0.1.3-alpha.1` → `0.1.5-rc.1`, carried as two closed legs.**
 
 *Leg A `0.1.3-alpha.1` → `0.1.5-alpha.1`, leg B `0.1.5-alpha.1` → `0.1.5-rc.1`: one corridor card plus one zero-dependency seam scanner over the merged 20-seam catalog, so a client half that stopped mounting silently is never mistaken for "typecheck is green".*

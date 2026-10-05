@@ -5,6 +5,8 @@
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
 [![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads&lang=zh)](https://dshfind.com/zh/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
+> 🪦 **已退役 —— 自 2026-10-05 起不再维护。** 本包已由维护者退役。**插件升级一律改由 [`dsh-plugin-upgrade`](https://github.com/PerryLink/dsh-plugin-upgrade) 继续**（npm `dsh-plugin-upgrade`）：它携带全部 corridor，并按**仓库自己锁定的版本**（`engines.dsh` / peer 区间 / devDeps）决定走哪条走廊 —— 因此不再需要「每个宿主跳跃单开一个版本锁定包」。**新工作请勿采用 `dsh-plugin-upgrade-015`**：它不再接受修复、发版或安全更新。保留公开仅供查阅；本包曾携带的走廊知识已保存在 `dsh-plugin-upgrade` 的参考卡中。
+
 **DeepSeek Harness 插件升级技能（已合并、版本锁定）——`0.1.3-alpha.1` → `0.1.5-rc.1`，由两条闭合的 leg 承载。**
 
 *leg A `0.1.3-alpha.1` → `0.1.5-alpha.1`，leg B `0.1.5-alpha.1` → `0.1.5-rc.1`：一张走廊卡加一个零依赖接缝扫描器，覆盖合并后的 20 条接缝目录，让「静默不挂载的 client 半边」不再被误当成「typecheck 绿了」。*

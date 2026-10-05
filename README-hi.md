@@ -5,6 +5,8 @@
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
 [![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads&lang=hi)](https://dshfind.com/hi/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
+> 🪦 **सेवानिवृत्त — 2026-10-05 से रखरखाव बंद।** यह पैकेज अनुरक्षक द्वारा सेवानिवृत्त कर दिया गया है। **अब सभी प्लगइन अपग्रेड [`dsh-plugin-upgrade`](https://github.com/PerryLink/dsh-plugin-upgrade) से होते हैं** (npm `dsh-plugin-upgrade`), जो सभी कॉरिडोर लेकर आता है और किसी रिपॉज़िटरी को **उसी रिपॉज़िटरी द्वारा तय संस्करण** (`engines.dsh` / peer रेंज / devDeps) के अनुसार रूट करता है — इसलिए हर होस्ट छलांग के लिए अलग संस्करण-लॉक्ड पैकेज की अब आवश्यकता नहीं है। **नए काम के लिए `dsh-plugin-upgrade-015` न अपनाएँ**; इसे अब कोई सुधार, रिलीज़ या सुरक्षा अद्यतन नहीं मिलेगा। केवल संदर्भ हेतु सार्वजनिक रखा गया है। इसके द्वारा ले जाया गया कॉरिडोर ज्ञान `dsh-plugin-upgrade` के संदर्भ कार्डों में सुरक्षित है।
+
 **DeepSeek Harness के लिए संस्करण-लॉक्ड और विलयित प्लगइन अपग्रेड स्किल — `0.1.3-alpha.1` → `0.1.5-rc.1`, दो बंद पैरों (legs) में वहन किया गया।**
 
 *पैर A `0.1.3-alpha.1` → `0.1.5-alpha.1`, पैर B `0.1.5-alpha.1` → `0.1.5-rc.1`: विलयित 20-सीम कैटलॉग पर एक कॉरिडोर कार्ड और एक शून्य-निर्भरता सीम स्कैनर, ताकि चुपचाप माउंट होना बंद कर चुका क्लाइंट आधा हिस्सा कभी «typecheck हरा है» न समझा जाए।*

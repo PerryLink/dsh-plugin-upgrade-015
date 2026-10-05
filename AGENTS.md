@@ -1,5 +1,7 @@
 # AGENTS.md
 
+> 🪦 **RETIRED 2026-10-05 (maintainer ruling) — do not develop here.** This repository is frozen: no further releases, fixes, or security updates. **All plugin-upgrade work continues exclusively in `dsh-plugin-upgrade`**, which routes a repository by the version that repository pins for itself (`engines.dsh` / peer ranges / devDeps). Treat everything below as historical documentation of the `dsh-plugin-upgrade-015` corridor. The rules in this file are NOT in force for new work — follow `dsh-plugin-upgrade`'s `AGENTS.md`.
+
 Standalone DeepSeek Harness plugin repository (`dsh-plugin-upgrade-015`). Development
 follows the dsh-plugin-guide skill and the official plugin contract; this file records
 repo-local decisions. Read `README.md` (external contract) and the packaged merged corridor

@@ -5,6 +5,8 @@
 [![Gitee](https://img.shields.io/badge/Gitee-mirror-c71d23?logo=gitee)](https://gitee.com/perrylink/dsh-plugin-upgrade-015)
 [![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-plugin-upgrade-015?metric=downloads&lang=pt)](https://dshfind.com/pt/plugins/PerryLink/dsh-plugin-upgrade-015?ref=badge)
 
+> 🪦 **RETIRADO — sem manutenção desde 2026-10-05.** Este pacote foi retirado pelo mantenedor. **Todas as atualizações de plugins agora passam pelo [`dsh-plugin-upgrade`](https://github.com/PerryLink/dsh-plugin-upgrade)** (npm `dsh-plugin-upgrade`), que carrega todos os corredores e encaminha cada repositório pela **versão que o próprio repositório fixa** (`engines.dsh` / faixas de peers / devDeps) — portanto não é mais necessário um pacote com versão travada por salto do host. **Não adote `dsh-plugin-upgrade-015` para trabalho novo**; ele não recebe mais correções, versões nem atualizações de segurança. Mantido público apenas como referência. O conhecimento de corredores que ele carregava está preservado nos cartões de referência do `dsh-plugin-upgrade`.
+
 **Habilidade de atualização de plugins para o DeepSeek Harness, com versão travada e fundida — `0.1.3-alpha.1` → `0.1.5-rc.1`, carregada em duas pernas fechadas.**
 
 *Perna A `0.1.3-alpha.1` → `0.1.5-alpha.1`, perna B `0.1.5-alpha.1` → `0.1.5-rc.1`: um cartão de corredor mais um scanner de costuras sem dependências sobre o catálogo fundido de 20 costuras, para que uma metade de cliente que parou de montar em silêncio nunca seja confundida com «typecheck verde».*
