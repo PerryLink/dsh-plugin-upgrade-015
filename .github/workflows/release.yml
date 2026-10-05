@@ -20,7 +20,13 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-          registry-url: 'https://registry.npmjs.org'
+          # No `registry-url` on purpose: it writes
+          # //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN} into .npmrc, and a
+          # configured bearer token is preferred over the OIDC exchange — the
+          # registry then answers 404 on PUT instead of letting npm perform the
+          # exchange. That is exactly how v0.1.2 failed: this repository still
+          # carried a stale NPM_TOKEN secret (set 2026-09-10), so the bearer path
+          # short-circuited trusted publishing. The secret is no longer read.
           cache: pnpm
 
       - name: Install
@@ -38,32 +44,30 @@ jobs:
           VERSION="${GITHUB_REF_NAME#v}"
           grep -q "## \[${VERSION}\]" CHANGELOG.md || { echo "CHANGELOG.md has no '## [${VERSION}]' section"; exit 1; }
 
+      # Trusted publishing: the OIDC token (id-token: write above) replaces the
+      # long-lived NPM_TOKEN. This supersedes the 2026-09-10 incident note: that
+      # fix made the *token* path work, but the token has since gone stale and a
+      # configured bearer token is preferred over the OIDC exchange, which is why
+      # v0.1.2 got a 404 on PUT. The secret is no longer read at all — retire it in
+      # the repository settings so it cannot short-circuit this again.
+      - name: Upgrade npm and show what the publish will authenticate with
+        run: |
+          npm install -g npm@^11.5.1
+          echo "npm: $(npm --version)"
+          echo "registry: $(npm config get registry)"
+          if [ -f .npmrc ]; then echo "--- workspace .npmrc ---"; cat .npmrc; else echo "no workspace .npmrc"; fi
+          if [ -n "${ACTIONS_ID_TOKEN_REQUEST_TOKEN:-}" ]; then echo "OIDC request TOKEN: present"; else echo "OIDC request TOKEN: MISSING"; fi
+
       - name: Publish to npm
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # npm's OIDC exchange never throws: a failure is only visible at verbose
+          # level, otherwise the step just fails with ENEEDAUTH and no reason.
+          NPM_CONFIG_LOGLEVEL: verbose
         run: |
           version="$(node -p "require('./package.json').version")"
-          # The first v0.1.0 tag died here with `*** is not a legal HTTP header
-          # value`, AFTER the provenance statement had been signed. The step then
-          # read the token through setup-node's `${NODE_AUTH_TOKEN}` expansion;
-          # it now normalises line breaks and writes the token into the
-          # userconfig itself. Measured after the fix: the secret carries NO
-          # CR/LF, so the trailing-newline hypothesis is DISPROVEN and the
-          # mechanism of the env-expanded failure is NOT established. What is
-          # established: that path failed, this one publishes. Do not go back to
-          # `${NODE_AUTH_TOKEN}` without re-testing it.
-          raw_breaks="no"
-          case "$NPM_TOKEN" in *$'\n'*|*$'\r'*) raw_breaks="yes" ;; esac
-          token="$(printf '%s' "$NPM_TOKEN" | tr -d '\r\n')"
-          echo "NPM_TOKEN secret contains line breaks: ${raw_breaks}"
-          if [ -z "$token" ]; then
-            echo "NPM_TOKEN secret is not set; skipping npm publish"
-            exit 0
-          fi
           if npm view "dsh-plugin-upgrade-015@${version}" version >/dev/null 2>&1; then
             echo "dsh-plugin-upgrade-015@${version} is already published; skipping npm publish"
           else
-            printf '//registry.npmjs.org/:_authToken=%s\n' "$token" > "${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
             npm publish --provenance --access public
           fi
 
